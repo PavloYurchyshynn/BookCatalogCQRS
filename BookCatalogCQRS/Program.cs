@@ -1,7 +1,13 @@
+using BookCatalogCQRS.API.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddRepositories();
+builder.Services.AddAutoMapper();
+builder.Services.AddMediatR();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
